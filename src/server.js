@@ -4,17 +4,17 @@ const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
 
-const userRoutes = require('./routes/UserRoutes');
-const destinationRoutes = require('./routes/DestinationRoutes');
-const reservationRoutes = require('./routes/ReservationRoutes');
-const authRoutes = require('./routes/AuthRoutes');
-
+const userRoutes = require('./routes/user.routes');
+const reservationRoutes = require('./routes/reservation.routes');
+const authRoutes = require('./routes/auth.routes');
+const airportRoutes = require('./routes/airport.routes');
+const flightRoutes = require('./routes/flight.routes');
 
 const app = express();
 
 app.use(cors({
   origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: '*'
 }));
 
@@ -22,9 +22,10 @@ app.use(express.json());
 
 // Routes
 app.use('/api/users', userRoutes);
-app.use('/api/destinations', destinationRoutes);
 app.use('/api/reservations', reservationRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/airports', airportRoutes);
+app.use('/api/flights', flightRoutes); 
 
 const PORT = process.env.PORT || 3000;
 
