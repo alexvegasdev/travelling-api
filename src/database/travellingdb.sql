@@ -44,7 +44,7 @@ CREATE TABLE flights (
     FOREIGN KEY (destination_airport_id) REFERENCES airports(id)
 );
 GO
-+
+
 -- Reservations table
 CREATE TABLE reservations (
     id INT PRIMARY KEY IDENTITY(1,1),
