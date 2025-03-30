@@ -14,7 +14,7 @@ exports.getAllReservations = async (req, res) => {
         {
           model: Flight,
           as: 'flight',
-          attributes: ['id', 'airline', 'price', 'departure_datetime', 'arrival_datetime'],
+          attributes: ['id', 'airline', 'price', 'departure_datetime', 'arrival_datetime','image_url'],
           include: [
             { model: Airport, as: 'departureAirport', attributes: ['id', 'name'] },
             { model: Airport, as: 'destinationAirport', attributes: ['id', 'name'] }
@@ -48,7 +48,7 @@ exports.getReservationById = async (req, res) => {
         {
           model: Flight,
           as: 'flight',
-          attributes: ['id', 'airline', 'price', 'departure_datetime', 'arrival_datetime'],
+          attributes: ['id', 'airline', 'price', 'departure_datetime', 'arrival_datetime', 'image_url'],
           include: [
             { model: Airport, as: 'departureAirport', attributes: ['id', 'name'] },
             { model: Airport, as: 'destinationAirport', attributes: ['id', 'name'] }
